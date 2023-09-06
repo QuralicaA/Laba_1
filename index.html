@@ -1,0 +1,33 @@
+<html>
+<head>
+    <script>
+        function number(){
+        var n = Number(document.forms["frm"].elements["N"].value);
+        for (var i = 1; i <= n; i++) { 
+            if(prostoe_chuslo(i)){
+                document.writeln(i);
+            }
+        }
+        
+        }
+        function prostoe_chuslo(i){
+            var delt = 0;
+            for( var k = 1; k<=i; k++){
+                if ( i%k==0){
+                    delt += 1;
+                } 
+            }
+            if (delt >2){
+                return false;
+            }
+            return true;
+        } //Сделано Бобылёвым, Гудожниковой, Прониной
+    </script>
+    </head>
+    <body>
+        <form id="frm">
+            <input type = "text" placeholder="Введите n" id = "N">
+            <input type="button" onclick ="number()" value="Отправить">
+        </form>
+    </body>
+</html>
