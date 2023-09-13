@@ -1,0 +1,21 @@
+<html>
+<head>
+    <script>
+        function massik(){
+        var n = document.forms["frm"].elements["N"].value;
+        var mass = n.split(' '); 
+        for (let i = 0; i<mass.length; i++){
+            if(mass[i] == i){
+                document.writeln(mass[i]);
+            }
+        }
+        }
+    </script>
+    </head>
+    <body>
+        <form id="frm">
+            <input type = "text" placeholder="Введите n" id = "N">
+            <input type="button" onclick ="massik()" value="Отправить">
+        </form>
+    </body>
+</html>
