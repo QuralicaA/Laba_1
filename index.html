@@ -1,25 +1,33 @@
 <html>
 <head>
     <script>
-        function result(){
-        var sum = 0;
-        var N = Number(document.forms["frm"].elements["N"].value);
-        var x = Number(document.forms["frm"].elements["x"].value); 
-        if(Math.abs(x)>1){
-            for(var n = 0; n <= N; n++){
-                sum = sum + (1/(2*n + 1)*x**(2*n + 1));
-            }
-            document.write(sum);
-        } else{
-            document.write("Введённое значение X не соответствует условию ")
-        } }
+     class Milxa{
+     #x = 0;
+     #y = 0;
+     constructor(x,y){
+        this.#x = x;
+        this.#y = y;
+     }
+     Addition(){
+        return this.#x + this.#y;
+     }
+     Subtraction(){
+        return this.#x - this.#y;
+     }
+     Multiplication(){
+        return this.#x * this.#y;
+     }
+     Division(){
+        return this.#x / this.#y;
+     }
+     }
+     var mass = [new Milxa(4,8), new Milxa(1,0), new Milxa(0,0)];
+     for (elem of mass){
+        document.writeln(mass.indexOf(elem) + " объект<br>");
+        document.writeln("Сложение: " + elem.Addition() + "<br>");
+        document.writeln("Вычитание: " + elem.Subtraction() + "<br>");
+        document.writeln("Умножение: " + elem.Multiplication() + "<br>");
+        document.writeln("Деление: " + elem.Division() + "<br> <br>");
+     }
     </script>
-    </head>
-    <body>
-        <form id="frm">
-            <input type = "text" placeholder="Введите n" id = "N">
-            <input type = "text" placeholder="Введите x" id = "x">
-            <input type="button" onclick ="result()" value="Отправить">
-        </form>
-    </body>
 </html>
