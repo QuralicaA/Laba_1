@@ -1,25 +1,89 @@
 <html>
 <head>
-    <script>
-        function result(){
-        var sum = 0;
-        var N = Number(document.forms["frm"].elements["N"].value);
-        var x = Number(document.forms["frm"].elements["x"].value); 
-        if(Math.abs(x)>1){
-            for(var n = 0; n <= N; n++){
-                sum = sum + (1/(2*n + 1)*x**(2*n + 1));
+    <script>        
+     class Animal{
+        food;
+        location;
+        name;
+        constructor(food, location, name){
+            this.food = food;
+            this.location = location;
+            this.name =name;
+    
+        }
+        makeNoise(){
+            document.writeln(`${animalName} говорит`);
+        }
+        eat(){
+            document.writeln(`${animalName} есть`);
+        }
+        sleep(){
+            document.writeln(`${animalName} спит`);
+        }
+        
+    }
+    var Animals = [];
+
+    class Dog extends Animal{
+        breed;
+
+         constructor(food, location, name, breed){
+            super(food, location, name)
+            this.breed =breed;
+         }
+        }
+         class Cat extends Animal{
+        age;
+
+         constructor(food, location, name, age){
+            super(food, location, name)
+            this.breed = age;
+         }
+        }
+         class Horse extends Animal{
+        weigth;
+
+         constructor(food, location, name, weigth){
+            super(food, location, name)
+            this.breed = weigth;
+         }
+        }
+        class Veterinarian {
+            static treatAnimal(){ // без констукции(new) короче инициализация короче 
+                var animalName = document.forms['see'].elements['name'].value;
+                var animal = Animals.find(element => element.name == animalName);
+                document.writeln(`${animal.name} ест ${animal.food}, находится в ${animal.location}`);
+        }
+    } 
+        function qqq(){
+            var gaga = document.forms["info"];
+            switch( gaga.elements['list'].value){
+                case "dog": 
+                    Animals.push(new Dog(gaga.elements['food'].value, gaga.elements['location'].value, gaga.elements['name'].value, gaga.elements['iditional'].value));
+                case "cat":
+                    Animals.push(new Cat(gaga.elements['food'].value, gaga.elements['location'].value, gaga.elements['name'].value, gaga.elements['iditional'].value));
+                case "horse":
+                    Animals.push(new Horse(gaga.elements['food'].value, gaga.elements['location'].value, gaga.elements['name'].value, gaga.elements['iditional'].value));
             }
-            document.write(sum);
-        } else{
-            document.write("Введённое значение X не соответствует условию ")
-        } }
+        }
     </script>
-    </head>
-    <body>
-        <form id="frm">
-            <input type = "text" placeholder="Введите n" id = "N">
-            <input type = "text" placeholder="Введите x" id = "x">
-            <input type="button" onclick ="result()" value="Отправить">
-        </form>
-    </body>
+</head>
+<body>
+    <form id = "info">
+        <select id = "list">
+            <option value="dog"> Dog </option>
+            <option value="cat"> Cat </option>
+            <option value="horse"> Horse </option>
+        </select>
+        <input id="name" placeholder="Введите имя животного">
+        <input id="food" placeholder="Введите еду, которую употребляет животное">
+        <input id="location" placeholder="Введите место, где живёт живоное"> 
+        <input id="iditional" placeholder="Введите доп. информацию"> 
+        <input type = "button" onclick="qqq()" value="Отправить">
+    </form>
+    <form id = "see">
+        <input id="name" placeholder="Введите имя животного">
+        <input type = "button" onclick="Veterinarian.treatAnimal()" value="Отправить">
+    </form>
+</body>
 </html>
