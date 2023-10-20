@@ -1,25 +1,42 @@
 <html>
 <head>
-    <script>
-        function result(){
-        var sum = 0;
-        var N = Number(document.forms["frm"].elements["N"].value);
-        var x = Number(document.forms["frm"].elements["x"].value); 
-        if(Math.abs(x)>1){
-            for(var n = 0; n <= N; n++){
-                sum = sum + (1/(2*n + 1)*x**(2*n + 1));
-            }
-            document.write(sum);
-        } else{
-            document.write("Введённое значение X не соответствует условию ")
-        } }
-    </script>
-    </head>
     <body>
-        <form id="frm">
-            <input type = "text" placeholder="Введите n" id = "N">
-            <input type = "text" placeholder="Введите x" id = "x">
-            <input type="button" onclick ="result()" value="Отправить">
-        </form>
+        <script>        
+        function createObject(prof1, prof2, value1, value2) {
+            return {
+            [prof1]: value1,
+            [prof2]: value2,
+            Print(){
+            return `${prof1}: ${value1}, ${prof2}: ${value2} <br>`;
+            }
+            }
+
+            }
+            var Peoples = [
+            new createObject('Имя', 'Возраст', 'Ангелинка', 18),
+            new createObject('Имя', 'Возраст', 'Светка', 18),
+            new createObject('Имя', 'Возраст', 'Индирка', 16)
+            ];
+            var Book = [
+            new createObject('Название книги', 'Дата публикации', 'Простите я не читаю книги 1', 2005),
+            new createObject('Название книги', 'Дата публикации', 'Простите я не читаю книги 2', 2006),
+            new createObject('Название книги', 'Дата публикации', 'Простите я не читаю книги 3', 2007)
+            ];
+            var Cars = [
+            new createObject('Марка', 'Дата выпуска', 'Первая машина', 1943),
+            new createObject('Марка','Дата выпуска', 'Машинка номер два', 998),
+            new createObject('Марка','Дата выпуска', 'Машинка без названия', 2024)
+            ];
+                for(var i = 0; i < Peoples.length; i++){
+                document.writeln( Peoples[i].Print() + '<br>' + '<br>');
+                }
+                for(var i = 0; i < Book .length; i++){
+                document.writeln(Book[i].Print() + '<br>' + '<br>');
+                }
+                for(var i = 0; i < Cars.length; i++){
+                document.writeln(Cars[i].Print() + '<br>' + '<br>');
+                }
+        </script>
     </body>
+</head>
 </html>
