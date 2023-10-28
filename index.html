@@ -12,11 +12,9 @@
             root.style.color = colort;
         }
         function ginks(){
-            var aElem = document.querySelector('a.link');
-            var link = document.getElementById('link').value;
-            var regExp = link.replace(/https:\/\//, '');
-            aElem.textContent = regExp;
-            aElem.setAttribute('href', link);
+            var changel = document.querySelector('a.link');
+            var link = document.getElementById('lchange').value;
+            changel.setAttribute('href', link);
         }
     </script>
     <style>
@@ -31,8 +29,9 @@
             <input type="text" placeholder="Введите цвет для текста" id="tcolor">
             <input type="button" onclick="textColor()" value="Ок">
             <br>
-            <input type="text" placeholder="Введите ссылку" id="link" value="https://">
+            <input type="text" placeholder="Введите ссылку" id="lchange">
             <input type="button" onclick="ginks()" value="Ок">
+            <br>
         <a href="" class="link">Ссылка</a>
         <p  class="p">Крутой текст короче</p>
        
