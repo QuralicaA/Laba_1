@@ -1,25 +1,41 @@
 <html>
-<head>
-    <script>
-        function result(){
-        var sum = 0;
-        var N = Number(document.forms["frm"].elements["N"].value);
-        var x = Number(document.forms["frm"].elements["x"].value); 
-        if(Math.abs(x)>1){
-            for(var n = 0; n <= N; n++){
-                sum = sum + (1/(2*n + 1)*x**(2*n + 1));
-            }
-            document.write(sum);
-        } else{
-            document.write("Введённое значение X не соответствует условию ")
-        } }
+<head> 
+    <script>        
+        function backgroundAll(){
+            var colorb = document.getElementById("bcolor").value;
+            var root = document.documentElement;
+            root.style.backgroundColor = colorb;
+        }
+        function textColor(){
+            var colort = document.getElementById("tcolor").value;
+            var root = document.body;
+            root.style.color = colort;
+        }
+        function ginks(){
+            var changel = document.querySelector('a.link');
+            var link = document.getElementById('lchange').value;
+            changel.setAttribute('href', link);
+        }
     </script>
-    </head>
+    <style>
+        .class{
+            background-color: white;
+        }
+    </style>
     <body>
-        <form id="frm">
-            <input type = "text" placeholder="Введите n" id = "N">
-            <input type = "text" placeholder="Введите x" id = "x">
-            <input type="button" onclick ="result()" value="Отправить">
-        </form>
+            <input type="text" placeholder="Введите цвет фона" id="bcolor">
+            <input type="button" onclick="backgroundAll()" value="Ок">
+            <br>
+            <input type="text" placeholder="Введите цвет для текста" id="tcolor">
+            <input type="button" onclick="textColor()" value="Ок">
+            <br>
+            <input type="text" placeholder="Введите ссылку" id="lchange">
+            <input type="button" onclick="ginks()" value="Ок">
+            <br>
+        <a href="" class="link">Ссылка</a>
+        <p  class="p">Крутой текст короче</p>
+       
     </body>
+   
+</head>
 </html>
