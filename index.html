@@ -1,25 +1,55 @@
 <html>
-<head>
-    <script>
-        function result(){
-        var sum = 0;
-        var N = Number(document.forms["frm"].elements["N"].value);
-        var x = Number(document.forms["frm"].elements["x"].value); 
-        if(Math.abs(x)>1){
-            for(var n = 0; n <= N; n++){
-                sum = sum + (1/(2*n + 1)*x**(2*n + 1));
-            }
-            document.write(sum);
-        } else{
-            document.write("Введённое значение X не соответствует условию ")
-        } }
+<head> 
+    <script>    
+       function fSize18(){
+            var root = document.body;
+            root.style.fontSize = "18pt";
+        }
+        function fSize22(){
+            var root = document.body;
+            root.style.fontSize = "22pt";
+        }
+        function fSize24(){
+            var root = document.body;
+            root.style.fontSize = "24pt";
+        }   
+        function b_w(){
+            var root = document.documentElement;
+            root.style.backgroundColor = "black";
+            var root1 = document.body;
+            root.style.color = "white";
+        }
+         function w_b(){
+            var root = document.documentElement;
+            root.style.backgroundColor = "white";
+            var root1 = document.body;
+            root.style.color = "black";
+        }
+        function b_b(){
+            var root = document.documentElement;
+            root.style.backgroundColor = "cyan";
+            var root1 = document.body;
+            root.style.color = "black";
+        }
+        function imagOn(){
+            var root = document.querySelector('img.image');
+            root.style.display = "block";
+        }
+        function imagOff(){
+            var root = document.querySelector('img.image');
+            root.style.display = "none";
+        }
     </script>
-    </head>
     <body>
-        <form id="frm">
-            <input type = "text" placeholder="Введите n" id = "N">
-            <input type = "text" placeholder="Введите x" id = "x">
-            <input type="button" onclick ="result()" value="Отправить">
-        </form>
+            <input type="button" onclick="fSize18()" value="18"> <input type="button" onclick="fSize22()" value="22"> <input type="button" onclick="fSize24()" value="24">
+            <br><br>
+            <input type="button" onclick="b_b()" value="Голубо-чёрный"> <input type="button" onclick="b_w()" value="Чёрно-белый"> <input type="button" onclick="w_b()" value="Бело-чёрный"> 
+            <br><br>
+            <input type="button" onclick="imagOn()" value="вкл"> <input type="button" onclick="imagOff()" value="вкл/выкл">
+            <br><br>
+        <img class ="image" src = "image.jpg">
+        <p  class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </body>
+   
+</head>
 </html>
